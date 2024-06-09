@@ -1,0 +1,66 @@
+*{
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+
+._Flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container{
+  background: radial-gradient(circle, rgba(220,146,43,1) 0%, rgba(88,9,25,1) 100%);
+  height: 100svh;
+  flex-direction: column;
+}
+.innerBox{
+  background-color: rgba(241, 237, 237, 0.129);
+  border: 4px solid rgb(237, 241, 21);
+  width: 100px;
+  height: 100px;
+  display: block;
+  cursor: pointer;
+  font-size: 40px;
+  font-weight: 900;
+
+}
+
+.active{
+  background-color: yellow;
+  color: red;
+}
+
+.player{
+  padding: 10px 25px;
+  font-size: 20px;
+  border: 1px solid rgb(251, 255, 0);
+  margin: 20px 20px 0px 20px;
+}
+
+.score{
+  padding: 5px 0px 10px 20px;
+  justify-content: flex-start;
+  color:rgb(251, 255, 0);
+}
+
+.wonscreen-Block{
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100svh;
+  background-color: rgba(46, 43, 43, 0.742);
+}
+
+.wonscreen-Block button{
+  background-color:rgb(251, 255, 0) ;
+  padding: 20px 30px;
+  color: red;
+  cursor: pointer;
+  margin-top: 30px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+}
