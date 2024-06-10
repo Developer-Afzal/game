@@ -3,44 +3,62 @@ import React, { useEffect, useState } from 'react'
 import './App.css';
 import Players from './Components/Players';
 import WonScreen from './Components/WonScreen';
+import Beep from '../src/assets/beep.mp3'
+import Win from '../src/assets/win.mp3'
 const Homepage = () => {
   const [value, setvalue] = useState('X');
   const [gameValue, setgameValue] = useState([[null,null,null],[null,null,null],[null,null,null]])
   const [score, setscore] = useState({playerX:0,playerO:0,})
-  const [playerX, setplayerX] = useState([])
+  // const [playerX, setplayerX] = useState([])
   const [count, setcount] = useState(0);
   const [showWonscreen, setshowWonscreen] = useState(false)
   useEffect(()=>{
    const setID =  setTimeout(()=>{
-      if(gameValue[0][0] == 'X' && gameValue[0][1] == 'X' && gameValue[0][2] == 'X' || gameValue[0][0] == 'X' && gameValue[1][0] == 'X' && gameValue[2][0] == 'X'){
+      if(gameValue[0][0] === 'X' && gameValue[0][1] === 'X' && gameValue[0][2] === 'X' || gameValue[0][0] === 'X' && gameValue[1][0] === 'X' && gameValue[2][0] === 'X'){
+        const play_audio  = new Audio(Win)
+        play_audio.play()
         setshowWonscreen(true)
         Scorehandle(score.playerX + 1)
       }
-      if(gameValue[1][0] == 'X' && gameValue[1][1] == 'X' && gameValue[1][2] == 'X' || gameValue[0][1] == 'X' && gameValue[1][1] == 'X' && gameValue[2][1] == 'X'){
+      if(gameValue[1][0] === 'X' && gameValue[1][1] === 'X' && gameValue[1][2] === 'X' || gameValue[0][1] === 'X' && gameValue[1][1] === 'X' && gameValue[2][1] === 'X'){
+        const play_audio  = new Audio(Win)
+        play_audio.play()
         setshowWonscreen(true)
         Scorehandle(score.playerX + 1)
       }
-      if(gameValue[2][0] == 'X' && gameValue[2][1] == 'X' && gameValue[2][2] == 'X' || gameValue[0][2] == 'X' && gameValue[1][2] == 'X' && gameValue[2][2] == 'X'){
+      if(gameValue[2][0] === 'X' && gameValue[2][1] === 'X' && gameValue[2][2] === 'X' || gameValue[0][2] === 'X' && gameValue[1][2] === 'X' && gameValue[2][2] === 'X'){
+        const play_audio  = new Audio(Win)
+        play_audio.play()
         setshowWonscreen(true)
         Scorehandle(score.playerX + 1)
       }
-      if(gameValue[0][0] == 'O' && gameValue[0][1] == 'O' && gameValue[0][2] == 'O' || gameValue[0][0] == 'O' && gameValue[1][0] == 'O' && gameValue[2][0] == 'O'){
+      if(gameValue[0][0] === 'O' && gameValue[0][1] === 'O' && gameValue[0][2] === 'O' || gameValue[0][0] === 'O' && gameValue[1][0] === 'O' && gameValue[2][0] === 'O'){
+        setshowWonscreen(true)
+        const play_audio  = new Audio(Win)
+        play_audio.play()
+        Scorehandle(score.playerO + 1)
+      }
+      if(gameValue[1][0] === 'O' && gameValue[1][1] === 'O' && gameValue[1][2] === 'O' || gameValue[0][1] ==='O' && gameValue[1][1] === 'O' && gameValue[2][1] === 'O'){
+        const play_audio  = new Audio(Win)
+        play_audio.play()
         setshowWonscreen(true)
         Scorehandle(score.playerO + 1)
       }
-      if(gameValue[1][0] == 'O' && gameValue[1][1] == 'O' && gameValue[1][2] == 'O' || gameValue[0][1] =='O' && gameValue[1][1] == 'O' && gameValue[2][1] == 'O'){
+      if(gameValue[2][0] === 'O' && gameValue[2][1] === 'O' && gameValue[2][2] === 'O' || gameValue[0][2] === 'O' && gameValue[1][2] === 'O' && gameValue[2][2] === 'O'){
+        const play_audio  = new Audio(Win)
+        play_audio.play()
         setshowWonscreen(true)
         Scorehandle(score.playerO + 1)
       }
-      if(gameValue[2][0] == 'O' && gameValue[2][1] == 'O' && gameValue[2][2] == 'O' || gameValue[0][2] == 'O' && gameValue[1][2] == 'O' && gameValue[2][2] == 'O'){
+      if(gameValue[0][0] === 'O' && gameValue[1][1] === 'O' && gameValue[2][2] === 'O' || gameValue[0][2] === 'O' && gameValue[1][1] === 'O' && gameValue[2][0] === 'O'){
+        const play_audio  = new Audio(Win)
+        play_audio.play()
         setshowWonscreen(true)
         Scorehandle(score.playerO + 1)
       }
-      if(gameValue[0][0] == 'O' && gameValue[1][1] == 'O' && gameValue[2][2] == 'O' || gameValue[0][2] == 'O' && gameValue[1][1] == 'O' && gameValue[2][0] == 'O'){
-        setshowWonscreen(true)
-        Scorehandle(score.playerO + 1)
-      }
-      if(gameValue[0][0] == 'X' && gameValue[1][1] == 'X' && gameValue[2][2] == 'X' || gameValue[0][2] == 'X' && gameValue[1][1] == 'X' && gameValue[2][0] == 'X'){
+      if(gameValue[0][0] === 'X' && gameValue[1][1] === 'X' && gameValue[2][2] === 'X' || gameValue[0][2] === 'X' && gameValue[1][1] === 'X' && gameValue[2][0] === 'X'){
+        const play_audio  = new Audio(Win)
+        play_audio.play()
         setshowWonscreen(true)
         Scorehandle(score.playerX + 1)
       } 
@@ -51,12 +69,14 @@ const Homepage = () => {
   },[value])
 
   const valuehandle =(rowindex, colindex)=>{
-    setcount(prev=> prev+1)
+   const play_audio  = new Audio(Beep)
+   play_audio.play()
     // if(value === 'X'){
     //   setplayerX((state)=> [...state, (colindex)])
     //   setXcount(Xcount => Xcount+1)
     // }
     if(gameValue[rowindex][colindex] === null){
+      setcount(prev=> prev+1)
     setgameValue(prev =>{
       const itemValue = [...prev.map(innerArray=> [...innerArray])];
       itemValue[rowindex][colindex] = value === "O" ? 'O' : "X";
@@ -64,7 +84,8 @@ const Homepage = () => {
       return itemValue;
     })
   }else{
-    return alert('pls enter select emapty box')
+    // return alert('pls enter select emapty box')
+    return null
   }
   }
 
@@ -103,7 +124,7 @@ const modelhandle =()=>{
           )}
         </div>
        ) )}
-       {showWonscreen === true ? <WonScreen closemodel={modelhandle} datavalue ={value == 'X' ? "O" : "X" }/> : null}
+       {showWonscreen === true ? <WonScreen closemodel={modelhandle} datavalue ={value === 'X' ? "O" : "X" }/> : null}
        {count === 9 && !showWonscreen ? <WonScreen closemodel={modelhandle} datavalue ={'No'}/> : null}
     </div>
   )
